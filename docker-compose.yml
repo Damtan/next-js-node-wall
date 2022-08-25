@@ -1,0 +1,22 @@
+version: '3.7'
+
+services:
+  ts-node-wall-next-docker:
+    build: docker/node
+    volumes:
+      - .:/home/node/app
+      - /home/node/app/node_modules
+      - /home/node/app/.next
+    container_name: ts-node-wall-next-docker
+    expose:
+      - '3000'
+    ports:
+      - '3000:3000'
+    command: npm run dev
+    networks:
+      - next_network
+      - nodewall-master_mongo_network
+networks:
+  nodewall-master_mongo_network:
+    external: true
+  next_network:

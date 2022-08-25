@@ -1,0 +1,1 @@
+export const MILISECONDS_MULTIPLIER = 1000;
